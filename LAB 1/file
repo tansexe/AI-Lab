@@ -1,0 +1,4 @@
+wlp2s0
+01-netcfg.yaml 
+
+sudo wpa_supplicant -B -D nl80211 -i wlp2s0 -c /netplan/01-netcfg.yaml
