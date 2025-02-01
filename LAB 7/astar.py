@@ -63,16 +63,21 @@ def solve_puzzle(start_state, output_file):
                 if tuple(map(tuple, move)) not in closed_set:
                     new_g_n = g_n + 1
                     new_f_n = new_g_n + heuristic(move)
-                    heapq.heappush(open_list, (new_f_n, new_g_n, move, path + [move]))
+                    heapq.heappush(open_list, (new_f_n, new_g_n, move, path + [move]))            
 
     return None
 
-# Start state
-START_STATE = [
-    [7, 2, 4],
-    [5, 0, 6],
-    [8, 3, 1]
-]
+# Get user input for the puzzle state
+def get_user_input():
+    print("Enter the 3x3 puzzle state (use 0 for the empty tile):")
+    state = []
+    for i in range(3):
+        row = list(map(int, input(f"Enter row {i + 1} (space-separated): ").split()))
+        state.append(row)
+    return state
+
+# Get user input
+START_STATE = get_user_input()
 
 # Output file
 OUTPUT_FILE = "output.txt"
@@ -87,6 +92,8 @@ if solution:
             for row in state:
                 f.write(f"{row}\n")
             f.write("------\n")
+    print(f"Solution found! Steps saved to {OUTPUT_FILE}")
 else:
     with open(OUTPUT_FILE, "a") as f:
         f.write("No solution found.\n")
+    print("No solution found.")
