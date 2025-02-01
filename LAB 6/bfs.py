@@ -32,20 +32,29 @@ def best_first_search(grid, start, treasure):
     
     return []  # Return empty path if no solution is found
 
-# Example grid and test
-grid = [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
-]
+# Get user input
+rows = int(input("Enter number of rows in the grid: "))
+cols = int(input("Enter number of columns in the grid: "))
 
-start_position = (0, 0)
-treasure_position = (3, 3)
+# Initialize grid
+grid = [[0] * cols for _ in range(rows)]
+
+# Get start position
+start_x = int(input("Enter start position x-coordinate: "))
+start_y = int(input("Enter start position y-coordinate: "))
+start_position = (start_x, start_y)
+
+# Get treasure position
+treasure_x = int(input("Enter treasure position x-coordinate: "))
+treasure_y = int(input("Enter treasure position y-coordinate: "))
+treasure_position = (treasure_x, treasure_y)
 
 # Run Best-First Search
 path_to_treasure = best_first_search(grid, start_position, treasure_position)
 
 # Output the results
-print("Best-First Search:")
-print(f"Path to treasure: {path_to_treasure}")
+print("\nBest-First Search Result:")
+if path_to_treasure:
+    print(f"Path to treasure: {path_to_treasure}")
+else:
+    print("No path to the treasure found.")
