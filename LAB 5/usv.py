@@ -1,19 +1,8 @@
 import heapq
 from collections import deque
 
-# Represent the graph as an adjacency list
-graph = {
-    'A': {'B': 1, 'C': 4},
-    'B': {'A': 1, 'C': 2, 'D': 5},
-    'C': {'A': 4, 'B': 2, 'D': 1},
-    'D': {'B': 5, 'C': 1}
-}
-
 def uniform_cost_search(graph, start, goal):
-    """
-    Implements Uniform Cost Search (UCS) for a weighted graph.
-    """
-    # Priority queue to store (cost, node, path)
+    ## Implements Uniform Cost Search (UCS) for a weighted graph.
     pq = []
     heapq.heappush(pq, (0, start, [start]))
     visited = set()
@@ -30,16 +19,14 @@ def uniform_cost_search(graph, start, goal):
             return cost, path
         
         # Explore neighbors
-        for neighbor, weight in graph[current_node].items():
+        for neighbor, weight in graph.get(current_node, {}).items():
             if neighbor not in visited:
                 heapq.heappush(pq, (cost + weight, neighbor, path + [neighbor]))
     
     return float('inf'), []  # Return if no path is found
 
-
 def bfs_unweighted(graph, start, goal):
-    #Implements BFS for unweighted graphs.
-    
+    ## Implements BFS for an unweighted graph.
     queue = deque([(start, [start])])
     visited = set()
     
@@ -55,23 +42,41 @@ def bfs_unweighted(graph, start, goal):
             return path
         
         # Explore neighbors
-        for neighbor in graph[current_node]:
+        for neighbor in graph.get(current_node, []):
             if neighbor not in visited:
                 queue.append((neighbor, path + [neighbor]))
     
     return []  # Return if no path is found
 
+# Get user input to build the graph
+graph = {}
+num_nodes = int(input("Enter the number of nodes in the graph: "))
 
-# Testing
-start_node = 'A'
-goal_node = 'D'
+for _ in range(num_nodes):
+    node = input("Enter node name: ")
+    graph[node] = {}
+    num_edges = int(input(f"Enter the number of neighbors for {node}: "))
+    
+    for _ in range(num_edges):
+        neighbor, weight = input(f"Enter neighbor and weight for {node} (format: neighbor weight): ").split()
+        graph[node][neighbor] = int(weight)
 
-# Uniform Cost Search
+# Get start and goal nodes
+start_node = input("Enter the start node: ")
+goal_node = input("Enter the goal node: ")
+
+# Run Uniform Cost Search
 ucs_cost, ucs_path = uniform_cost_search(graph, start_node, goal_node)
-print("Uniform Cost Search:")
-print(f"Cost: {ucs_cost}, Path: {ucs_path}")
+print("\nUniform Cost Search:")
+if ucs_path:
+    print(f"Cost: {ucs_cost}, Path: {ucs_path}")
+else:
+    print("No path found.")
 
-# BFS (assuming the graph is treated as unweighted)
+# Run BFS (assuming the graph is unweighted)
 bfs_path = bfs_unweighted(graph, start_node, goal_node)
 print("\nBFS (Unweighted):")
-print(f"Path: {bfs_path}")
+if bfs_path:
+    print(f"Path: {bfs_path}")
+else:
+    print("No path found.")
