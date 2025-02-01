@@ -23,23 +23,31 @@ class DepthLimitedSearch:
         
         return recursive_dls(start, 0)
 
+# Get user input to build the graph
+def get_user_graph():
+    graph = {}
+    num_nodes = int(input("Enter the number of nodes in the graph: "))
+
+    for _ in range(num_nodes):
+        node = input("Enter node name: ")
+        neighbors = input(f"Enter neighbors of {node} (space-separated): ").split()
+        graph[node] = neighbors
+    
+    return graph
 
 if __name__ == "__main__":
-    graph = {
-        'A': ['B', 'C'],
-        'B': ['D', 'E'],
-        'C': ['F'],
-        'D': [],
-        'E': [],
-        'F': []
-    }
-    start_node = 'A'
-    goal_node = 'E'
-    depth_limit = 2
+    # Get user input
+    graph = get_user_graph()
+    start_node = input("Enter the start node: ")
+    goal_node = input("Enter the goal node: ")
+    depth_limit = int(input("Enter the depth limit: "))
 
+    # Perform Depth-Limited Search
     dls = DepthLimitedSearch(graph)
     result = dls.dls(start_node, goal_node, depth_limit)
 
+    # Output the results
+    print("\nDepth-Limited Search Result:")
     if result == "Cutoff":
         print("Cutoff occurred. Goal not found within the depth limit.")
     elif result is None:
