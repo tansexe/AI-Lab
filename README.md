@@ -33,10 +33,10 @@ This course focuses on hands-on implementation of AI techniques, helping you sol
 **4. Optimal Path (Uniform Cost Search)**  
    - Solve weighted graphs to find the least-cost path.  
 
-**5. Puzzle Solver (A* Search)**  
+**5. Puzzle Solver (A* Search) **  
    - Solve the 8-puzzle with A* using two heuristics: misplaced tiles and Manhattan distance.  
 
-**6. Robot Path Planning (A*)**  
+**6. Robot Path Planning (A*) **  
    - Plan a robot’s path with A*, comparing Manhattan and Euclidean heuristics.  
 
 **7. Game AI**  
