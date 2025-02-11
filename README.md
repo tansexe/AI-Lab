@@ -60,7 +60,7 @@ This project is part of the **Artificial Intelligence Laboratory (AI Lab)** cour
    - Compare A* and Greedy Best-First Search algorithms for solving the 8-puzzle.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 - Inspired by the concepts covered in the AI Lab curriculum.
