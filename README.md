@@ -41,24 +41,6 @@ This project is part of the **Artificial Intelligence Laboratory (AI Lab)** cour
 ### 10. **Comparative Study**
    - Compare BFS, DFS, Bi-Directional BFS, Uniform Cost, Best-First, and A* search algorithms.
 
-### 11. **Hill Climbing Optimization**
-   - Implement Hill Climbing optimization for solving AI problems.
-
-### 12. **Genetic Algorithm**
-   - Solve search problems using a Genetic Algorithm.
-
-### 13. **Water-Jugs Problem (Adversarial Search)**
-   - Use Minimax and alpha-beta pruning to solve the Water-Jugs problem.
-
-### 14. **4-Queens Problem (Adversarial Search)**
-   - Solve the 4-Queens problem using Minimax and alpha-beta pruning.
-
-### 15. **Tower of Hanoi (Adversarial Search)**
-   - Implement the Tower of Hanoi as a competitive game using Minimax and alpha-beta pruning.
-
-### 16. **8-Puzzle Problem (Heuristic Search)**
-   - Compare A* and Greedy Best-First Search algorithms for solving the 8-puzzle.
-
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
